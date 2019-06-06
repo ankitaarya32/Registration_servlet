@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>student info</title>
+        <style>
+            h1{color: red; text-align: center;}
+            div{position: fixed; left: 40%;top: 30%; background: greenyellow;}
+            body{margin:0; ;padding: 0;background: yellow;font-size: 20px;}
+            label{float: left;clear: left;width: 100px;text-align: left;margin-right: 14px;font-size: 15px; }
+            input{float: left;margin-bottom: 15px;margin-left: 10px;border: 2px solid #a0b3b0;resize: vertical; }  
+            [type="submit"]{margin: 12px 0px 0 30%;color: green;background: red; font-size: 18px;}
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div><form name="registration" action="register" onsubmit="return validate()" method="post">
+                <h1>Student Registration</h1>
+                <label> Student Id:</label> <input type="number" name="sid" onkeypress="return /[0-9]/i.test(event.key)" required ><br>
+                <label>Student Name:</label> <input type="text" name="sname"  required><br>
+                <label>class:</label> <input type="text" name="sclass" onkeypress="return /[a-z .]/i.test(event.key)" required><br>
+	<input type="submit" name="Submit">
+            </form>
+        </div>
+    </body>
+    <script>
+	function validate(){
+	var i=0;
+	var x1=document.registration.sname;
+	if (allLetter(x1)) {return true;}
+		else {return false;}
+	}
+function allLetter(name)
+	{
+		var letters=/^[A-Za-z\s]{3,}$/;
+		if(name.value[0]="") {alert("Enter valid name");return false;}
+     else		if(name.value.match(letters))
+		{
+			return true;
+		}
+		else{
+alert(" name should be alphabet only");
+name.focus();
+		return false;}
+	}
+
+</script>
+</html>
